@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FAFAFA;
+  --color-primary: #1A1A1A;
+  --color-primary-container: #2a2a2a;
+  --color-surface: #FAFAFA;
+  --color-on-background: #1A1A1A;
+  --color-on-surface: #1A1A1A;
+  --color-on-surface-variant: #666666;
+  --color-outline: #777586;
+  --color-outline-variant: #c7c4d7;
+  --color-surface-container-low: #F5F5F5;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container: #EEEEEE;
+  --color-surface-container-high: #E5E5E5;
+  --color-surface-container-highest: #DCDCDC;
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-container: #E0E0E0;
+  --color-border: #E0E0E0;
+  --color-accent-neon-lime: #D4FF00;
+  --color-accent-violet: #8A2BE2;
+  --color-white: #FFFFFF;
+  --color-teal: #008080;
+  
+  --font-headline: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif;
+  --font-label: "Outfit", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-cinzel: "Cinzel Decorative", cursive;
+  
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-on-background font-body;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Animations */
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll-marquee-reverse {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeUpAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee {
+  animation: scroll-marquee 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: scroll-marquee-reverse 30s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUpAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
